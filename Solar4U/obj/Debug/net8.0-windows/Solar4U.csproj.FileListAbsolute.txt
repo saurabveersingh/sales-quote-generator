@@ -1,0 +1,17 @@
+Z:\Desktop\CProjects\Solar4U\Solar4U\bin\Debug\net8.0-windows\Solar4U.exe
+Z:\Desktop\CProjects\Solar4U\Solar4U\bin\Debug\net8.0-windows\Solar4U.deps.json
+Z:\Desktop\CProjects\Solar4U\Solar4U\bin\Debug\net8.0-windows\Solar4U.runtimeconfig.json
+Z:\Desktop\CProjects\Solar4U\Solar4U\bin\Debug\net8.0-windows\Solar4U.dll
+Z:\Desktop\CProjects\Solar4U\Solar4U\bin\Debug\net8.0-windows\Solar4U.pdb
+Z:\Desktop\CProjects\Solar4U\Solar4U\obj\Debug\net8.0-windows\Solar4U.csproj.GenerateResource.cache
+Z:\Desktop\CProjects\Solar4U\Solar4U\obj\Debug\net8.0-windows\Solar4U.GeneratedMSBuildEditorConfig.editorconfig
+Z:\Desktop\CProjects\Solar4U\Solar4U\obj\Debug\net8.0-windows\Solar4U.AssemblyInfoInputs.cache
+Z:\Desktop\CProjects\Solar4U\Solar4U\obj\Debug\net8.0-windows\Solar4U.AssemblyInfo.cs
+Z:\Desktop\CProjects\Solar4U\Solar4U\obj\Debug\net8.0-windows\Solar4U.csproj.CoreCompileInputs.cache
+Z:\Desktop\CProjects\Solar4U\Solar4U\obj\Debug\net8.0-windows\Solar4U.dll
+Z:\Desktop\CProjects\Solar4U\Solar4U\obj\Debug\net8.0-windows\refint\Solar4U.dll
+Z:\Desktop\CProjects\Solar4U\Solar4U\obj\Debug\net8.0-windows\Solar4U.pdb
+Z:\Desktop\CProjects\Solar4U\Solar4U\obj\Debug\net8.0-windows\Solar4U.genruntimeconfig.cache
+Z:\Desktop\CProjects\Solar4U\Solar4U\obj\Debug\net8.0-windows\ref\Solar4U.dll
+Z:\Desktop\CProjects\Solar4U\Solar4U\obj\Debug\net8.0-windows\Solar4U.Solar4U.resources
+Z:\Desktop\CProjects\Solar4U\Solar4U\obj\Debug\net8.0-windows\Solar4U.Properties.Resources.resources
