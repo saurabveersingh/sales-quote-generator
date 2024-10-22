@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Solar4U")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11740179828b22a0a518b194f54df67e7912f12b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f77f6433341f40e660ea0f1a760181929eefc426")]
 [assembly: System.Reflection.AssemblyProductAttribute("Solar4U")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Solar4U")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

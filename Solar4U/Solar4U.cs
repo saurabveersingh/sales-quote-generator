@@ -1,11 +1,3 @@
-/* Student Name: Saurabveer Singh
- * Student ID: 24239833
- * Date:04/10/2024
- * Assignment: 1
- * Assignment: Create a form App that can be used by sales representatives to calculate 
- * quotations for prospective clients while also being able to generate summary of all quotes generated
- */
-
 namespace Solar4U
 {
     public partial class Solar4U : Form

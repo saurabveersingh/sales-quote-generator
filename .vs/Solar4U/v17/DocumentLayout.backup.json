@@ -3,6 +3,9 @@
   "WorkspaceRootPath": "Z:\\Desktop\\CProjects\\sales-quote-generator\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|\\\\Mac\\Home\\Desktop\\CProjects\\sales-quote-generator\\Solar4U\\Solar4U.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6D369AEB-28E2-42EC-97C6-2696E27CA7A5}|Solar4U\\Solar4U.csproj|z:\\desktop\\cprojects\\sales-quote-generator\\solar4u\\solar4u.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D369AEB-28E2-42EC-97C6-2696E27CA7A5}|Solar4U\\Solar4U.csproj|solutionrelative:solar4u\\solar4u.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -32,18 +35,29 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Solar4U.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Desktop\\CProjects\\sales-quote-generator\\Solar4U\\Solar4U.cs",
+              "ToolTip": "\\\\Mac\\Home\\Desktop\\CProjects\\sales-quote-generator\\Solar4U\\Solar4U.cs",
+              "ViewState": "AgIAAA4AAAAAzMzMzAwswAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T22:13:26.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Solar4U.cs",
               "DocumentMoniker": "Z:\\Desktop\\CProjects\\sales-quote-generator\\Solar4U\\Solar4U.cs",
               "RelativeDocumentMoniker": "Solar4U\\Solar4U.cs",
               "ToolTip": "Z:\\Desktop\\CProjects\\sales-quote-generator\\Solar4U\\Solar4U.cs",
               "RelativeToolTip": "Solar4U\\Solar4U.cs",
-              "ViewState": "AgIAAAkBAAAAQDMzM3MjwBEBAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAGAAAACADwAAAMAnwGwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-07T16:51:44.436Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Solar4U.cs [Design]",
               "DocumentMoniker": "Z:\\Desktop\\CProjects\\sales-quote-generator\\Solar4U\\Solar4U.cs",
               "RelativeDocumentMoniker": "Solar4U\\Solar4U.cs",
@@ -55,7 +69,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Solar4U.Designer.cs",
               "DocumentMoniker": "Z:\\Desktop\\CProjects\\sales-quote-generator\\Solar4U\\Solar4U.Designer.cs",
               "RelativeDocumentMoniker": "Solar4U\\Solar4U.Designer.cs",
