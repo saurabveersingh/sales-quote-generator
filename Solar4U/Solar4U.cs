@@ -11,45 +11,38 @@ namespace Solar4U
     public partial class Solar4U : Form
     {
         // Global Variable to keep track of number of quotes
-        private int numOfQuotes = 0;
-
-        // Global Variable to keep track of total quotes
-        private double panelsTotal, batteriesTotal, invertorsTotal, installationsTotal = 0;
+        private int totalQuotes, totalPanels, totalBatteries, totalInvertors = 0;
 
         // Global Constants, to avoid reinitiation of constant variables on every function call.
-        const double PanelCost = 119.50;
-        const double BatteryCost = 568.75;
-        const double InvertorCost = 224.00;
-        const double InstallationCost = 499.00;
+        const decimal PANEL_COST = 119.50m, BATTERY_COST = 568.75m, INVERTOR_COST = 224m, INSTALLATION_COST = 499m;
 
         // Default Constructor Function
         public Solar4U()
         {
             InitializeComponent();
-            InitializeCustomComponents();
         }
 
         // Used to Initialize heavy components separately to improve form loading time.
-        private void InitializeCustomComponents()
+        private void Solar4UOnLoad(object sender, EventArgs e)
         {
             logoImage.Image = Properties.Resources.logo;
         }
 
         // On Click handler for Enter Button on Sales Rep Login Page
-        private void EnterButton_Click(object sender, EventArgs e)
+        private void EnterButtonClickHandler(object sender, EventArgs e)
         {
             // If the inputs are not empty, then user is taken to next page
             if (salesRepTextBox.Text == "")
             {
-                MessageBox.Show("Sales Rep Input Required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DisplayError("Sales Rep Input Required");
             }
             else if (quoteIdTextBox.Text == "")
             {
-                MessageBox.Show("Quote ID Input Required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DisplayError("Quote ID Input Required");
             }
             else
             {
-                // Switch page within same for using panel visibilty 
+                // Switch page within same form using panel visibilty 
                 salesRepPanel.Visible = false;
                 quotePanel.Visible = true;
                 optionsPanel.Visible = true;
@@ -57,27 +50,48 @@ namespace Solar4U
                 // Reusing same picturebox for another page with change in location and size
                 logoImage.Location = new Point(450, 1250);
                 logoImage.Size = new Size(300, 300);
+
+                // Change Form Heading
+                this.Text = $"Data Entry for Sales Rep: {salesRepTextBox.Text} Quote ID: {quoteIdTextBox.Text}";
+
+                // Highlight First Input box on new page
+                HighlightInput(panelsTextBox);
             }
+        }
+
+        //Displays Error Box
+        private void DisplayError(string message)
+        {
+            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        // Focuses on a text box selects all text to give user visual cues.
+        private void HighlightInput(TextBox textBox)
+        {
+            textBox.SelectAll();
+            textBox.Focus();
         }
 
         //On Click handler for Quote Button
         private void QuoteButtonClickHandler(object sender, EventArgs e)
         {
             // Initiate the variables with error handling function.
-            int panels = ParseIntegerInput("Solar Panels", panelsTextBox.Text);
-            int batteries = ParseIntegerInput("Batteries", batteriesTextBox.Text);
-            int invertors = ParseIntegerInput("Invertors", invertorsTextBox.Text);
-
             // A less than zero value returned from the fetch input function denotes an error conveyed to user.
-            if (panels < 0 || batteries < 0 || invertors < 0) return;
+            int panels = ParseIntegerInput("Solar Panels", panelsTextBox);
+            if (panels < 0) return;
+            int batteries = ParseIntegerInput("Batteries", batteriesTextBox);
+            if (batteries < 0) return;
+            int invertors = ParseIntegerInput("Invertors", invertorsTextBox);
+            if (invertors < 0) return;
 
             // All values cannot be zero to request a quotation
             if (panels == 0 && batteries == 0 && invertors == 0)
             {
-                MessageBox.Show("Please request a quotation for atleast one item", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DisplayError("Please request a quotation for atleast one item");
+                HighlightInput(panelsTextBox);
                 return;
             }
-            // This function is stopped at this point in case of an error to allow user make input corrections.
+            // This function is stopped before this point in case of an error to allow user make input corrections.
 
             // Disable quote button to prevent multiple clicks
             ToggleQuotesInput(false);
@@ -90,31 +104,31 @@ namespace Solar4U
         }
 
         // A method utilized to remove redundancy when parsing int values from strings.
-        private int ParseIntegerInput(string inputName, string inputValue)
+        private int ParseIntegerInput(string inputName, TextBox textBox)
         {
+            string inputValue = textBox.Text;
             int value = -1;
 
             try
             {
                 // Text inputs are stored in numerical form
                 value = int.Parse(inputValue);
+                // Handles negative numbers as an error.
+                if (value < 0) throw new ArgumentException($"{inputName} cannot be less than zero", nameof(value));
             }
             catch (Exception ex)
             {
                 // Provides feedback to the user
-                MessageBox.Show($"Please enter numerical data for {inputName}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DisplayError($"Please enter valid numerical value for {inputName}");
 
                 // Provides additional details for developers
                 Console.WriteLine($"Error while updating variable for {inputName} based on user input \n Details: {ex.Message}");
 
+                // Focus on the source of the error.
+                HighlightInput(textBox);
+
                 // Returns a negative number if the user was shown an error.
                 return -1;
-            }
-
-            // Handles negative numbers as an error.
-            if (value < 0)
-            {
-                MessageBox.Show($"Please enter positive numerical value for {inputName}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return value;
@@ -141,32 +155,29 @@ namespace Solar4U
         // Used to calculate Quotes and update the form information.
         public void CalculateQuote(int panels, int batteries, int invertors)
         {
-            // Increments total number of quotes recieved
-            numOfQuotes++;
 
             // Calculate cost of each equipment
-            double panelsCostVal = (double)PanelCost * panels;
-            double batteriesCostVal = (double)BatteryCost * batteries;
-            double invertorsCostVal = (double)InvertorCost * invertors;
-            double installationCostVal = InstallationCost;
-            double totalCostVal = panelsCostVal + batteriesCostVal + invertorsCostVal + installationCostVal;
+            decimal panelsCostVal = PANEL_COST * panels;
+            decimal batteriesCostVal = BATTERY_COST * batteries;
+            decimal invertorsCostVal = INVERTOR_COST * invertors;
+            decimal totalCostVal = panelsCostVal + batteriesCostVal + invertorsCostVal + INSTALLATION_COST;
 
             // Update information in Quote Summary
-            panelsCost.Text = $"€{panelsCostVal}";
-            batteriesCost.Text = $"€{batteriesCostVal}";
-            invertorsCost.Text = $"€{invertorsCostVal}";
-            installationCost.Text = $"€{installationCostVal}";
-            totalCost.Text = $"€{totalCostVal}";
-            panelsPercentage.Text = $"{Math.Round((double)(panelsCostVal * 100) / totalCostVal, 2)}%";
-            batteriesPercentage.Text = $"{Math.Round((double)(batteriesCostVal * 100) / totalCostVal, 2)}%";
-            invertorsPercentage.Text = $"{Math.Round((double)(invertorsCostVal * 100) / totalCostVal, 2)}%";
-            installationPercentage.Text = $"{Math.Round((double)(installationCostVal * 100) / totalCostVal, 2)}%";
+            panelsCost.Text = panelsCostVal.ToString("C2");
+            batteriesCost.Text = batteriesCostVal.ToString("C2");
+            invertorsCost.Text = invertorsCostVal.ToString("C2");
+            installationCost.Text = INSTALLATION_COST.ToString("C2");
+            totalCost.Text = totalCostVal.ToString("C2");
+            panelsPercentage.Text = (panelsCostVal / totalCostVal).ToString("P2");
+            batteriesPercentage.Text = (batteriesCostVal / totalCostVal).ToString("P2");
+            invertorsPercentage.Text = (invertorsCostVal / totalCostVal).ToString("P2");
+            installationPercentage.Text = (INSTALLATION_COST / totalCostVal).ToString("P2");
 
-            // Update Total Costs
-            panelsTotal += panelsCostVal;
-            batteriesTotal += batteriesCostVal;
-            invertorsTotal += invertorsCostVal;
-            installationsTotal += installationCostVal;
+            // Update Total Quotes
+            totalQuotes++;
+            totalPanels += panels;
+            totalBatteries += batteries;
+            totalInvertors += invertors;
 
             // Enables the summary Button in presence of more than one Quote.
             summaryButton.Enabled = true;
@@ -180,7 +191,7 @@ namespace Solar4U
 
             // Show Total quotes recieved on Average Quote Summary.
             totalQuotesLabel.Visible = isAverage;
-            totalQuotes.Visible = isAverage;
+            totalQuotesValue.Visible = isAverage;
 
             // Show average quote on Average Quote Summary
             averageQuoteLabel.Visible = isAverage;
@@ -199,11 +210,11 @@ namespace Solar4U
         // Used to reset the form while keeping historical data safe.
         private void ClearButtonClickHandler(object sender, EventArgs e)
         {
-            // Enable previously disabled buttons with the exception of summary button if there are no quotes
-            summaryButton.Enabled = true;
-
             // Disable clear button to prevent multiple clicks
             clearButton.Enabled = false;
+
+            // Enable previously disabled buttons with the exception of summary button if there are no quotes
+            summaryButton.Enabled = totalQuotes != 0;
 
             // Resets Quotes inputs.
             ToggleQuotesInput(true);
@@ -223,6 +234,9 @@ namespace Solar4U
 
             // Renable clear button after page is switched
             clearButton.Enabled = true;
+
+            // Move Cursor to sales rep input box
+            salesRepTextBox.Focus();
         }
 
         // Used to clear all input fields
@@ -230,9 +244,9 @@ namespace Solar4U
         {
             salesRepTextBox.Clear();
             quoteIdTextBox.Clear();
-            panelsTextBox.Clear();
-            batteriesTextBox.Clear();
-            invertorsTextBox.Clear();
+            panelsTextBox.Text = "0";
+            batteriesTextBox.Text = "0";
+            invertorsTextBox.Text = "0";
         }
 
         // Enables user to view Average Quotes Summary
@@ -245,14 +259,20 @@ namespace Solar4U
             quotePanel.Visible = false;
 
             // Updates form information for Average Summary of Quotes
-            totalQuotes.Text = $"{numOfQuotes}";
-            panelsCost.Text = $"€{(int)panelsTotal}";
-            batteriesCost.Text = $"€{(int)batteriesTotal}";
-            invertorsCost.Text = $"€{(int)invertorsTotal}";
-            installationCost.Text = $"€{(int)installationsTotal}";
-            int totalCostValue = (int)panelsTotal + (int)batteriesTotal + (int)invertorsTotal + (int)installationsTotal;
-            totalCost.Text = $"€{totalCostValue}";
-            averageQuoteValue.Text = $"€{totalCostValue / numOfQuotes}";
+            int totalPanelsCost = (int)(totalPanels * PANEL_COST);
+            int totalBatteriesCost = (int)(totalBatteries * BATTERY_COST);
+            int totalInvertorsCost = (int)(totalInvertors * INVERTOR_COST);
+            int totalQuotesCost = (int)(totalQuotes * INSTALLATION_COST);
+            // Rounding off before adding prevents deviation in sum.
+            int totalCostValue = totalPanelsCost + totalBatteriesCost + totalInvertorsCost + totalQuotesCost;
+
+            totalQuotesValue.Text = totalQuotes.ToString("N0");
+            panelsCost.Text = totalPanelsCost.ToString("C0");
+            batteriesCost.Text = totalBatteriesCost.ToString("C0");
+            invertorsCost.Text = totalInvertorsCost.ToString("C0");
+            installationCost.Text = totalQuotesCost.ToString("C0");
+            totalCost.Text = totalCostValue.ToString("C0");
+            averageQuoteValue.Text = (totalCostValue / totalQuotes).ToString("C0");
 
             // Displays Quotes Average Summary
             ToggleQuotesAverageSummary(true);

@@ -1,0 +1,74 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "Z:\\Desktop\\CProjects\\sales-quote-generator\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6D369AEB-28E2-42EC-97C6-2696E27CA7A5}|Solar4U\\Solar4U.csproj|z:\\desktop\\cprojects\\sales-quote-generator\\solar4u\\solar4u.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D369AEB-28E2-42EC-97C6-2696E27CA7A5}|Solar4U\\Solar4U.csproj|solutionrelative:solar4u\\solar4u.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D369AEB-28E2-42EC-97C6-2696E27CA7A5}|Solar4U\\Solar4U.csproj|z:\\desktop\\cprojects\\sales-quote-generator\\solar4u\\solar4u.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D369AEB-28E2-42EC-97C6-2696E27CA7A5}|Solar4U\\Solar4U.csproj|solutionrelative:solar4u\\solar4u.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D369AEB-28E2-42EC-97C6-2696E27CA7A5}|Solar4U\\Solar4U.csproj|z:\\desktop\\cprojects\\sales-quote-generator\\solar4u\\solar4u.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6D369AEB-28E2-42EC-97C6-2696E27CA7A5}|Solar4U\\Solar4U.csproj|solutionrelative:solar4u\\solar4u.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Solar4U.cs",
+              "DocumentMoniker": "Z:\\Desktop\\CProjects\\sales-quote-generator\\Solar4U\\Solar4U.cs",
+              "RelativeDocumentMoniker": "Solar4U\\Solar4U.cs",
+              "ToolTip": "Z:\\Desktop\\CProjects\\sales-quote-generator\\Solar4U\\Solar4U.cs",
+              "RelativeToolTip": "Solar4U\\Solar4U.cs",
+              "ViewState": "AgIAAAkBAAAAQDMzM3MjwBMBAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T16:51:44.436Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Solar4U.cs [Design]",
+              "DocumentMoniker": "Z:\\Desktop\\CProjects\\sales-quote-generator\\Solar4U\\Solar4U.cs",
+              "RelativeDocumentMoniker": "Solar4U\\Solar4U.cs",
+              "ToolTip": "Z:\\Desktop\\CProjects\\sales-quote-generator\\Solar4U\\Solar4U.cs [Design]",
+              "RelativeToolTip": "Solar4U\\Solar4U.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T16:02:32.524Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Solar4U.Designer.cs",
+              "DocumentMoniker": "Z:\\Desktop\\CProjects\\sales-quote-generator\\Solar4U\\Solar4U.Designer.cs",
+              "RelativeDocumentMoniker": "Solar4U\\Solar4U.Designer.cs",
+              "ToolTip": "Z:\\Desktop\\CProjects\\sales-quote-generator\\Solar4U\\Solar4U.Designer.cs",
+              "RelativeToolTip": "Solar4U\\Solar4U.Designer.cs",
+              "ViewState": "AgIAACcCAAAAEM3MzMzkv6MCAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T16:03:01.026Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

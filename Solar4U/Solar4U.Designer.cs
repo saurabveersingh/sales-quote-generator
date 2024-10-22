@@ -65,8 +65,8 @@
             summaryBottomLine = new Panel();
             summaryMidLine = new Panel();
             summaryLabel = new Label();
-            summaryHeadingPanel = new Panel();
-            totalQuotes = new Label();
+            summaryHeadingLine = new Panel();
+            totalQuotesValue = new Label();
             averageQuoteLabel = new Label();
             totalCostLabel = new Label();
             installationCostLabel = new Label();
@@ -96,10 +96,10 @@
             enterButton.Padding = new Padding(30, 15, 30, 15);
             enterButton.Size = new Size(160, 80);
             enterButton.TabIndex = 2;
-            enterButton.Text = "Enter";
+            enterButton.Text = "&Enter";
             toolTip.SetToolTip(enterButton, "Press to login with your credentials");
             enterButton.UseVisualStyleBackColor = false;
-            enterButton.Click += EnterButton_Click;
+            enterButton.Click += EnterButtonClickHandler;
             // 
             // salesRepPanel
             // 
@@ -114,7 +114,7 @@
             salesRepPanel.Margin = new Padding(0);
             salesRepPanel.Name = "salesRepPanel";
             salesRepPanel.Size = new Size(1070, 150);
-            salesRepPanel.TabIndex = 3;
+            salesRepPanel.TabIndex = 5;
             // 
             // quoteIdTextBox
             // 
@@ -124,6 +124,7 @@
             quoteIdTextBox.Name = "quoteIdTextBox";
             quoteIdTextBox.Size = new Size(200, 38);
             quoteIdTextBox.TabIndex = 1;
+            quoteIdTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // salesRepTextBox
             // 
@@ -133,6 +134,7 @@
             salesRepTextBox.Name = "salesRepTextBox";
             salesRepTextBox.Size = new Size(200, 38);
             salesRepTextBox.TabIndex = 0;
+            salesRepTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // quoteIdLabel
             // 
@@ -143,7 +145,7 @@
             quoteIdLabel.Name = "quoteIdLabel";
             quoteIdLabel.Padding = new Padding(0, 4, 0, 4);
             quoteIdLabel.Size = new Size(139, 40);
-            quoteIdLabel.TabIndex = 2;
+            quoteIdLabel.TabIndex = 4;
             quoteIdLabel.Text = "Quote ID:";
             // 
             // salesRepLabel
@@ -155,7 +157,7 @@
             salesRepLabel.Name = "salesRepLabel";
             salesRepLabel.Padding = new Padding(0, 4, 0, 4);
             salesRepLabel.Size = new Size(155, 40);
-            salesRepLabel.TabIndex = 1;
+            salesRepLabel.TabIndex = 3;
             salesRepLabel.Text = "Sales Rep:";
             // 
             // logoImage
@@ -164,7 +166,7 @@
             logoImage.Name = "logoImage";
             logoImage.Size = new Size(500, 500);
             logoImage.SizeMode = PictureBoxSizeMode.Zoom;
-            logoImage.TabIndex = 2;
+            logoImage.TabIndex = 100;
             logoImage.TabStop = false;
             // 
             // quotePanel
@@ -179,10 +181,10 @@
             quotePanel.Controls.Add(panelsLabel);
             quotePanel.Controls.Add(quoteLabel);
             quotePanel.Controls.Add(quoteHeadingLine);
-            quotePanel.Location = new Point(50, 75);
+            quotePanel.Location = new Point(50, 70);
             quotePanel.Name = "quotePanel";
             quotePanel.Size = new Size(1070, 340);
-            quotePanel.TabIndex = 4;
+            quotePanel.TabIndex = 13;
             quotePanel.Visible = false;
             // 
             // quoteBottomLine
@@ -191,7 +193,7 @@
             quoteBottomLine.Location = new Point(0, 335);
             quoteBottomLine.Name = "quoteBottomLine";
             quoteBottomLine.Size = new Size(1070, 2);
-            quoteBottomLine.TabIndex = 8;
+            quoteBottomLine.TabIndex = 12;
             // 
             // invertorsTextBox
             // 
@@ -201,7 +203,8 @@
             invertorsTextBox.Margin = new Padding(20, 10, 20, 10);
             invertorsTextBox.Name = "invertorsTextBox";
             invertorsTextBox.Size = new Size(80, 38);
-            invertorsTextBox.TabIndex = 7;
+            invertorsTextBox.TabIndex = 2;
+            invertorsTextBox.Text = "0";
             invertorsTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // batteriesTextBox
@@ -212,7 +215,8 @@
             batteriesTextBox.Margin = new Padding(20, 10, 20, 10);
             batteriesTextBox.Name = "batteriesTextBox";
             batteriesTextBox.Size = new Size(80, 38);
-            batteriesTextBox.TabIndex = 6;
+            batteriesTextBox.TabIndex = 1;
+            batteriesTextBox.Text = "0";
             batteriesTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // panelsTextBox
@@ -223,7 +227,8 @@
             panelsTextBox.Margin = new Padding(20, 10, 20, 10);
             panelsTextBox.Name = "panelsTextBox";
             panelsTextBox.Size = new Size(80, 38);
-            panelsTextBox.TabIndex = 5;
+            panelsTextBox.TabIndex = 0;
+            panelsTextBox.Text = "0";
             panelsTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // invertorsLabel
@@ -235,7 +240,7 @@
             invertorsLabel.Name = "invertorsLabel";
             invertorsLabel.Padding = new Padding(0, 4, 0, 4);
             invertorsLabel.Size = new Size(251, 45);
-            invertorsLabel.TabIndex = 4;
+            invertorsLabel.TabIndex = 9;
             invertorsLabel.Text = "No. of Invertors";
             // 
             // batteriesLabel
@@ -247,7 +252,7 @@
             batteriesLabel.Name = "batteriesLabel";
             batteriesLabel.Padding = new Padding(0, 4, 0, 4);
             batteriesLabel.Size = new Size(296, 45);
-            batteriesLabel.TabIndex = 3;
+            batteriesLabel.TabIndex = 8;
             batteriesLabel.Text = "No. 5KW Batteries";
             // 
             // panelsLabel
@@ -259,7 +264,7 @@
             panelsLabel.Name = "panelsLabel";
             panelsLabel.Padding = new Padding(0, 4, 0, 4);
             panelsLabel.Size = new Size(308, 45);
-            panelsLabel.TabIndex = 2;
+            panelsLabel.TabIndex = 7;
             panelsLabel.Text = "No. of Solar Panels";
             // 
             // quoteLabel
@@ -271,7 +276,7 @@
             quoteLabel.Name = "quoteLabel";
             quoteLabel.Padding = new Padding(0, 4, 0, 4);
             quoteLabel.Size = new Size(229, 40);
-            quoteLabel.TabIndex = 1;
+            quoteLabel.TabIndex = 11;
             quoteLabel.Text = "PV System Quote";
             // 
             // quoteHeadingLine
@@ -280,7 +285,7 @@
             quoteHeadingLine.Location = new Point(0, 20);
             quoteHeadingLine.Name = "quoteHeadingLine";
             quoteHeadingLine.Size = new Size(1070, 2);
-            quoteHeadingLine.TabIndex = 0;
+            quoteHeadingLine.TabIndex = 10;
             // 
             // optionsPanel
             // 
@@ -293,7 +298,7 @@
             optionsPanel.Location = new Point(50, 450);
             optionsPanel.Name = "optionsPanel";
             optionsPanel.Size = new Size(1070, 150);
-            optionsPanel.TabIndex = 5;
+            optionsPanel.TabIndex = 14;
             optionsPanel.Visible = false;
             // 
             // exitButton
@@ -308,8 +313,8 @@
             exitButton.Location = new Point(820, 60);
             exitButton.Name = "exitButton";
             exitButton.Size = new Size(200, 52);
-            exitButton.TabIndex = 3;
-            exitButton.Text = "Exit";
+            exitButton.TabIndex = 6;
+            exitButton.Text = "E&xit";
             toolTip.SetToolTip(exitButton, "Press to Quit the App");
             exitButton.UseVisualStyleBackColor = true;
             exitButton.Click += ExitButtonClickHandler;
@@ -327,8 +332,8 @@
             summaryButton.Location = new Point(560, 60);
             summaryButton.Name = "summaryButton";
             summaryButton.Size = new Size(200, 52);
-            summaryButton.TabIndex = 2;
-            summaryButton.Text = "Summary";
+            summaryButton.TabIndex = 5;
+            summaryButton.Text = "&Summary";
             toolTip.SetToolTip(summaryButton, "Press to view Summary of all quotations");
             summaryButton.UseVisualStyleBackColor = true;
             summaryButton.Click += SummaryButtonClickHandler;
@@ -345,8 +350,8 @@
             clearButton.Location = new Point(300, 60);
             clearButton.Name = "clearButton";
             clearButton.Size = new Size(200, 52);
-            clearButton.TabIndex = 1;
-            clearButton.Text = "Clear";
+            clearButton.TabIndex = 4;
+            clearButton.Text = "&Clear";
             toolTip.SetToolTip(clearButton, "Press to reset the form");
             clearButton.UseVisualStyleBackColor = true;
             clearButton.Click += ClearButtonClickHandler;
@@ -363,8 +368,8 @@
             quoteButton.Location = new Point(40, 60);
             quoteButton.Name = "quoteButton";
             quoteButton.Size = new Size(200, 52);
-            quoteButton.TabIndex = 0;
-            quoteButton.Text = "Quote";
+            quoteButton.TabIndex = 3;
+            quoteButton.Text = "&Quote";
             toolTip.SetToolTip(quoteButton, "Press to view quotation");
             quoteButton.UseVisualStyleBackColor = true;
             quoteButton.Click += QuoteButtonClickHandler;
@@ -385,8 +390,8 @@
             summaryPanel.Controls.Add(summaryBottomLine);
             summaryPanel.Controls.Add(summaryMidLine);
             summaryPanel.Controls.Add(summaryLabel);
-            summaryPanel.Controls.Add(summaryHeadingPanel);
-            summaryPanel.Controls.Add(totalQuotes);
+            summaryPanel.Controls.Add(summaryHeadingLine);
+            summaryPanel.Controls.Add(totalQuotesValue);
             summaryPanel.Controls.Add(averageQuoteLabel);
             summaryPanel.Controls.Add(totalCostLabel);
             summaryPanel.Controls.Add(installationCostLabel);
@@ -397,7 +402,7 @@
             summaryPanel.Location = new Point(50, 660);
             summaryPanel.Name = "summaryPanel";
             summaryPanel.Size = new Size(1070, 600);
-            summaryPanel.TabIndex = 6;
+            summaryPanel.TabIndex = 15;
             summaryPanel.Visible = false;
             // 
             // installationPercentage
@@ -409,7 +414,7 @@
             installationPercentage.Margin = new Padding(0);
             installationPercentage.Name = "installationPercentage";
             installationPercentage.Size = new Size(100, 40);
-            installationPercentage.TabIndex = 21;
+            installationPercentage.TabIndex = 31;
             installationPercentage.Text = "0";
             installationPercentage.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -422,7 +427,7 @@
             invertorsPercentage.Margin = new Padding(0);
             invertorsPercentage.Name = "invertorsPercentage";
             invertorsPercentage.Size = new Size(100, 40);
-            invertorsPercentage.TabIndex = 20;
+            invertorsPercentage.TabIndex = 28;
             invertorsPercentage.Text = "0";
             invertorsPercentage.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -435,7 +440,7 @@
             batteriesPercentage.Margin = new Padding(0);
             batteriesPercentage.Name = "batteriesPercentage";
             batteriesPercentage.Size = new Size(100, 40);
-            batteriesPercentage.TabIndex = 19;
+            batteriesPercentage.TabIndex = 25;
             batteriesPercentage.Text = "0";
             batteriesPercentage.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -448,7 +453,7 @@
             panelsPercentage.Margin = new Padding(0);
             panelsPercentage.Name = "panelsPercentage";
             panelsPercentage.Size = new Size(100, 40);
-            panelsPercentage.TabIndex = 18;
+            panelsPercentage.TabIndex = 22;
             panelsPercentage.Text = "0";
             panelsPercentage.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -461,7 +466,7 @@
             averageQuoteValue.Margin = new Padding(0);
             averageQuoteValue.Name = "averageQuoteValue";
             averageQuoteValue.Size = new Size(160, 40);
-            averageQuoteValue.TabIndex = 17;
+            averageQuoteValue.TabIndex = 36;
             averageQuoteValue.Text = "0";
             averageQuoteValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -474,7 +479,7 @@
             totalCost.Margin = new Padding(0);
             totalCost.Name = "totalCost";
             totalCost.Size = new Size(160, 40);
-            totalCost.TabIndex = 16;
+            totalCost.TabIndex = 34;
             totalCost.Text = "0";
             totalCost.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -487,7 +492,7 @@
             installationCost.Margin = new Padding(0);
             installationCost.Name = "installationCost";
             installationCost.Size = new Size(160, 40);
-            installationCost.TabIndex = 15;
+            installationCost.TabIndex = 30;
             installationCost.Text = "0";
             installationCost.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -500,7 +505,7 @@
             invertorsCost.Margin = new Padding(0);
             invertorsCost.Name = "invertorsCost";
             invertorsCost.Size = new Size(160, 40);
-            invertorsCost.TabIndex = 14;
+            invertorsCost.TabIndex = 27;
             invertorsCost.Text = "0";
             invertorsCost.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -513,7 +518,7 @@
             batteriesCost.Margin = new Padding(0);
             batteriesCost.Name = "batteriesCost";
             batteriesCost.Size = new Size(160, 40);
-            batteriesCost.TabIndex = 13;
+            batteriesCost.TabIndex = 24;
             batteriesCost.Text = "0";
             batteriesCost.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -526,7 +531,7 @@
             panelsCost.Margin = new Padding(0);
             panelsCost.Name = "panelsCost";
             panelsCost.Size = new Size(160, 40);
-            panelsCost.TabIndex = 12;
+            panelsCost.TabIndex = 21;
             panelsCost.Text = "0";
             panelsCost.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -536,7 +541,7 @@
             summaryBottomLine.Location = new Point(0, 595);
             summaryBottomLine.Name = "summaryBottomLine";
             summaryBottomLine.Size = new Size(1070, 2);
-            summaryBottomLine.TabIndex = 11;
+            summaryBottomLine.TabIndex = 37;
             // 
             // summaryMidLine
             // 
@@ -544,7 +549,7 @@
             summaryMidLine.Location = new Point(100, 400);
             summaryMidLine.Name = "summaryMidLine";
             summaryMidLine.Size = new Size(870, 5);
-            summaryMidLine.TabIndex = 10;
+            summaryMidLine.TabIndex = 32;
             // 
             // summaryLabel
             // 
@@ -555,29 +560,29 @@
             summaryLabel.Name = "summaryLabel";
             summaryLabel.Padding = new Padding(0, 4, 0, 4);
             summaryLabel.Size = new Size(211, 40);
-            summaryLabel.TabIndex = 8;
+            summaryLabel.TabIndex = 17;
             summaryLabel.Text = "Quote Summary";
             // 
-            // summaryHeadingPanel
+            // summaryHeadingLine
             // 
-            summaryHeadingPanel.BackColor = Color.White;
-            summaryHeadingPanel.Location = new Point(0, 20);
-            summaryHeadingPanel.Name = "summaryHeadingPanel";
-            summaryHeadingPanel.Size = new Size(1070, 2);
-            summaryHeadingPanel.TabIndex = 9;
+            summaryHeadingLine.BackColor = Color.White;
+            summaryHeadingLine.Location = new Point(0, 20);
+            summaryHeadingLine.Name = "summaryHeadingLine";
+            summaryHeadingLine.Size = new Size(1070, 2);
+            summaryHeadingLine.TabIndex = 16;
             // 
-            // totalQuotes
+            // totalQuotesValue
             // 
-            totalQuotes.BackColor = Color.White;
-            totalQuotes.BorderStyle = BorderStyle.FixedSingle;
-            totalQuotes.ForeColor = Color.Black;
-            totalQuotes.Location = new Point(560, 80);
-            totalQuotes.Margin = new Padding(0);
-            totalQuotes.Name = "totalQuotes";
-            totalQuotes.Size = new Size(160, 40);
-            totalQuotes.TabIndex = 7;
-            totalQuotes.Text = "0";
-            totalQuotes.TextAlign = ContentAlignment.MiddleCenter;
+            totalQuotesValue.BackColor = Color.White;
+            totalQuotesValue.BorderStyle = BorderStyle.FixedSingle;
+            totalQuotesValue.ForeColor = Color.Black;
+            totalQuotesValue.Location = new Point(560, 80);
+            totalQuotesValue.Margin = new Padding(0);
+            totalQuotesValue.Name = "totalQuotesValue";
+            totalQuotesValue.Size = new Size(160, 40);
+            totalQuotesValue.TabIndex = 19;
+            totalQuotesValue.Text = "0";
+            totalQuotesValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // averageQuoteLabel
             // 
@@ -588,7 +593,7 @@
             averageQuoteLabel.Name = "averageQuoteLabel";
             averageQuoteLabel.Padding = new Padding(0, 4, 0, 4);
             averageQuoteLabel.Size = new Size(335, 45);
-            averageQuoteLabel.TabIndex = 6;
+            averageQuoteLabel.TabIndex = 35;
             averageQuoteLabel.Text = "Average Quote Value";
             // 
             // totalCostLabel
@@ -600,7 +605,7 @@
             totalCostLabel.Name = "totalCostLabel";
             totalCostLabel.Padding = new Padding(0, 4, 0, 4);
             totalCostLabel.Size = new Size(273, 45);
-            totalCostLabel.TabIndex = 5;
+            totalCostLabel.TabIndex = 33;
             totalCostLabel.Text = "Total Cost Quote";
             // 
             // installationCostLabel
@@ -612,7 +617,7 @@
             installationCostLabel.Name = "installationCostLabel";
             installationCostLabel.Padding = new Padding(0, 4, 0, 4);
             installationCostLabel.Size = new Size(268, 45);
-            installationCostLabel.TabIndex = 4;
+            installationCostLabel.TabIndex = 29;
             installationCostLabel.Text = "Cost Installation";
             // 
             // invertorsCostLabel
@@ -624,7 +629,7 @@
             invertorsCostLabel.Name = "invertorsCostLabel";
             invertorsCostLabel.Padding = new Padding(0, 4, 0, 4);
             invertorsCostLabel.Size = new Size(233, 45);
-            invertorsCostLabel.TabIndex = 3;
+            invertorsCostLabel.TabIndex = 26;
             invertorsCostLabel.Text = "Cost Invertors";
             // 
             // batteriesCostLabel
@@ -636,7 +641,7 @@
             batteriesCostLabel.Name = "batteriesCostLabel";
             batteriesCostLabel.Padding = new Padding(0, 4, 0, 4);
             batteriesCostLabel.Size = new Size(236, 45);
-            batteriesCostLabel.TabIndex = 2;
+            batteriesCostLabel.TabIndex = 23;
             batteriesCostLabel.Text = "Cost Batteries";
             // 
             // panelsCostLabel
@@ -648,7 +653,7 @@
             panelsCostLabel.Name = "panelsCostLabel";
             panelsCostLabel.Padding = new Padding(0, 4, 0, 4);
             panelsCostLabel.Size = new Size(290, 45);
-            panelsCostLabel.TabIndex = 1;
+            panelsCostLabel.TabIndex = 20;
             panelsCostLabel.Text = "Cost Solar Panels";
             // 
             // totalQuotesLabel
@@ -660,7 +665,7 @@
             totalQuotesLabel.Name = "totalQuotesLabel";
             totalQuotesLabel.Padding = new Padding(0, 4, 0, 4);
             totalQuotesLabel.Size = new Size(309, 45);
-            totalQuotesLabel.TabIndex = 0;
+            totalQuotesLabel.TabIndex = 18;
             totalQuotesLabel.Text = "Total No. of Quotes";
             // 
             // toolTip
@@ -683,6 +688,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Solar4U";
             Text = "Solar4U Sales Quote Calculator";
+            Load += Solar4UOnLoad;
             salesRepPanel.ResumeLayout(false);
             salesRepPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)logoImage).EndInit();
@@ -723,14 +729,14 @@
         private TextBox invertorsTextBox;
         private TextBox batteriesTextBox;
         private TextBox panelsTextBox;
-        private Label totalQuotes;
+        private Label totalQuotesValue;
         private Button quoteButton;
         private Button exitButton;
         private Button summaryButton;
         private Button clearButton;
         private Label summaryLabel;
         private Panel quoteBottomLine;
-        private Panel summaryHeadingPanel;
+        private Panel summaryHeadingLine;
         private Panel summaryBottomLine;
         private Panel summaryMidLine;
         private Label panelsCost;
